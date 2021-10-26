@@ -1,0 +1,49 @@
+  <div class="cards">
+     <form [formGroup]="registro">
+        <input type="text" formControlName = "itemName" class="entrada-input"
+         (keyup.enter)="addItem()" placeholder="Adicione a sua Tarefa">
+     </form>
+   </div>
+
+  <main id="cardArea" cdkDropListGroup>
+    <section class="Fazer">
+      <h4>Para Fazer</h4>
+      <div class="itemSpace" cdkDropList [cdkDropListData]="fazer" id="listaFazer"
+       class="example-list" [cdkDropListConnectedTo]="['listaFazer']" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of fazer; let a = index" cdkDrag>
+      <span id="span-id">{{item.id}}</span>
+      {{item.tarefa}}
+       <button class="btn-remove" (click)="removeItem(item, a)"><mat-icon id="icon-delete-red">delete</mat-icon></button>
+
+    </div>
+     </div>
+  </section>
+
+  <section class="Fazendo">
+    <h4>Fazendo</h4>
+    <div cdkDropList class="example-list" [cdkDropListData]="fazendo" id="listaFazendo"
+     [cdkDropListConnectedTo]="['listaFazer', 'listaFeito']" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of fazendo; let b = index" cdkDrag>
+      <span id="span-id">{{item.id}}</span>
+      <p>{{item.tarefa}}</p>
+      <button class="btn-remove" (click)="removeItem(item, b)"><mat-icon id="icon-delete-yellow">delete</mat-icon></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="Feito">
+    <h4>Feito</h4>
+    <div cdkDropList class="example-list" [cdkDropListData]="feito" id="listaFeito"
+     [cdkDropListConnectedTo]="['listaFazendo']" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of feito; let c = index" cdkDrag>
+      <span id="span-id">{{item.id}}</span>
+      <p>{{item.tarefa}}</p>
+      <button class="btn-remove" (click)="removeItem(item, c)"><mat-icon id="icon-delete-green">delete</mat-icon></button>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+
+

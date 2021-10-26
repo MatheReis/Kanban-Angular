@@ -1,0 +1,202 @@
+.body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: #f3f6fd;
+}
+
+
+/*Input*/
+.entrada-input {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  box-shadow: 0 0 0 0;
+  outline: 0;
+  width: 516px;
+  height: 36px;
+  color:black;
+  border:  rgb(39, 163, 39) solid;
+  border-radius: 8px;
+  top: 38px;
+  left: 400px;
+  right: 10;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  padding: 9px;
+}
+
+.span-id {
+  color: none;
+}
+
+
+/*Botao de Remover Item*/
+.btn-remove {
+  display: flex;
+  position: relative;
+  background: none;
+  left: -10px;
+  border: none;
+}
+
+   #icon-delete-red {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    color: #FF0000;
+    height: 24px;
+    width: 28px;
+    position: relative;
+    left: -2px;
+    top: 1px;
+ }
+  #icon-delete-yellow {
+   background-repeat: no-repeat;
+   display: inline-block;
+   fill: currentColor;
+   color:#ffd700;
+   height: 24px;
+   width: 28px;
+   position: relative;
+   left: -2px;
+   top: 1px;
+ }
+  #icon-delete-green {
+   background-repeat: no-repeat;
+   display: inline-block;
+   fill: currentColor;
+   color:#3CB371;
+   height: 24px;
+   width: 28px;
+   position: relative;
+   left: -2px;
+   top: 1px;
+ }
+
+/*Area dos Cards*/
+.example-box {
+  font-family: "Roboto", sans-serif;
+
+}
+
+
+.example-list {
+  font-family: "Roboto",sans-serif;
+}
+
+
+/*Cards*/
+
+.Fazer{
+  font-family: "Roboto", sans-serif;
+    text-align: center;
+    left: 80px;
+    top: -781px;
+    background: #fff;
+    border-top: 5px solid #FF0000;
+    border-radius: 16px;
+    display: inline-block;
+    height: 400px;
+    margin: 1rem;
+    position: relative;
+    width: 300px;
+    box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+  }
+
+  .Fazendo {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    left: 497px;
+    top: 89px;
+    background: #fff;
+    border-top: 5px solid #FFD700;
+    border-radius: 16px;
+    display: inline-block;
+    height: 400px;
+    margin: 1rem;
+    position: absolute;
+    width: 300px;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30),
+    0 15px 12px rgba(0,0,0,0.22);
+    }
+
+    .Feito{
+
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    left: 922px;
+    top: 89px;
+    background: #fff;
+    border-top: 5px solid #3CB371;
+    border-radius: 16px;
+    display: inline-block;
+    height: 400px;
+    margin: 1rem;
+    position: absolute;
+    width: 300px;
+    box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+      }
+
+  .example-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+
+  .example-container {
+    width: 300px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .example-list {
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+
+  .example-box {
+    padding: 20px 10px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .example-box:last-child {
+    border: none;
+  }
+
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
