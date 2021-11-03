@@ -1,49 +1,123 @@
-  <div class="cards">
      <form [formGroup]="registro">
         <input type="text" formControlName = "itemName" class="entrada-input"
          (keyup.enter)="addItem()" placeholder="Adicione a sua Tarefa">
      </form>
-   </div>
 
-  <main id="cardArea" cdkDropListGroup>
-    <section class="Fazer">
-      <h4>Para Fazer</h4>
-      <div class="itemSpace" cdkDropList [cdkDropListData]="fazer" id="listaFazer"
-       class="example-list" [cdkDropListConnectedTo]="['listaFazer']" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of fazer; let a = index" cdkDrag>
-      <span id="span-id">{{item.id}}</span>
-      {{item.tarefa}}
-       <button class="btn-remove" (click)="removeItem(item, a)"><mat-icon id="icon-delete-red">delete</mat-icon></button>
+    <main id="cardArea" cdkDropListGroup>
 
-    </div>
-     </div>
-  </section>
+      <!-- Card Fazer -->
+  <section class="Fazer">
+    <h4>Para Fazer</h4>
+    <section class="itemSpace" cdkDropList [cdkDropListData]="fazer" id="listaFazer"
+    class="example-list" [cdkDropListConnectedTo]="['listaFazer']" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of fazer; let a = index" cdkDrag>
+      <p id="tarefa">{{item.tarefa}}</p>
 
+      <!--Modal-->
+      <div class="container">
+        <div class="interior">
+        <a id="btn-principal" href="#open-modal">
+        <mat-icon id="icon-detalhes">sticky_note_2</mat-icon></a>
+        <mat-icon></mat-icon>
+         </div>
+      </div>
+
+      <div id="open-modal" class="modal-janela">
+      <div>
+        <a href="#" title="Close" class="modal-close"><mat-icon id="btn-close">cancel</mat-icon></a>
+        <h1>Detalhes</h1>
+
+      <form [formGroup]="modalRegistro">
+        <textarea [(ngModel)]="itemModal" formControlName="itemDetails"
+         name="textArea" id="textArea" cols="30" rows="10"></textarea>
+          <button id="btn-save" (click)="addDetalhes()">Salvar</button>
+          <ul id="listaModal">
+            <li id="liModal" *ngFor="let itemModal of itensModal">{{itemModal}}</li>
+          </ul>
+          <button class="btn-remove" (click)="removeItem(item, a)"><mat-icon id="btn-delete">delete</mat-icon></button>
+        </form>
+             </div>
+           </div>
+        </div>
+    </section>
+    </section>
+
+<!-- Card Fazendo -->
   <section class="Fazendo">
     <h4>Fazendo</h4>
-    <div cdkDropList class="example-list" [cdkDropListData]="fazendo" id="listaFazendo"
-     [cdkDropListConnectedTo]="['listaFazer', 'listaFeito']" (cdkDropListDropped)="drop($event)">
+    <section cdkDropList class="itemSpace" cdkDropList [cdkDropListData]="fazendo" id="listaFazendo"
+     class="example-list" [cdkDropListConnectedTo]="['listaFazer', 'listaFeito']" (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let item of fazendo; let b = index" cdkDrag>
-      <span id="span-id">{{item.id}}</span>
-      <p>{{item.tarefa}}</p>
-      <button class="btn-remove" (click)="removeItem(item, b)"><mat-icon id="icon-delete-yellow">delete</mat-icon></button>
+      <p id="tarefa">{{item.tarefa}}</p>
+
+      <!--Modal-->
+      <div class="container">
+        <div class="interior">
+        <a id="btn-principal" href="#open-modal">
+        <mat-icon id="icon-detalhes">sticky_note_2</mat-icon></a>
+        <mat-icon></mat-icon>
+         </div>
       </div>
-    </div>
+
+      <div id="open-modal" class="modal-janela">
+      <div>
+        <a href="#" title="Close" class="modal-close"><mat-icon id="btn-close">cancel</mat-icon></a>
+        <h1>Detalhes</h1>
+
+      <form [formGroup]="modalRegistro">
+        <textarea [(ngModel)]="itemModal" formControlName="itemDetails"
+        name="textArea" id="textArea" cols="30" rows="10"></textarea>
+          <button id="btn-save" (click)="addDetalhes()">Salvar</button>
+          <ul id="listaModal">
+            <li id="liModal" *ngFor="let itemModal of itensModal">{{itemModal}}</li>
+          </ul>
+          <button class="btn-remove" (click)="removeItem(item, b)">
+            <mat-icon id="btn-delete">delete</mat-icon></button>
+        </form>
+             </div>
+           </div>
+      </div>
   </section>
+  </section>
+
+  <!-- Feito -->
 
   <section class="Feito">
     <h4>Feito</h4>
-    <div cdkDropList class="example-list" [cdkDropListData]="feito" id="listaFeito"
-     [cdkDropListConnectedTo]="['listaFazendo']" (cdkDropListDropped)="drop($event)">
+    <section cdkDropList class="itemSpace" cdkDropList [cdkDropListData]="feito" id="listaFeito"
+     class="example-list" [cdkDropListConnectedTo]="['listaFeito']" (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let item of feito; let c = index" cdkDrag>
-      <span id="span-id">{{item.id}}</span>
-      <p>{{item.tarefa}}</p>
-      <button class="btn-remove" (click)="removeItem(item, c)"><mat-icon id="icon-delete-green">delete</mat-icon></button>
+      <p id="tarefa">{{item.tarefa}}</p>
+
+      <!--Modal-->
+      <div class="container">
+        <div class="interior">
+        <a id="btn-principal" href="#open-modal">
+        <mat-icon id="icon-detalhes">sticky_note_2</mat-icon></a>
+        <mat-icon></mat-icon>
+         </div>
       </div>
-    </div>
+
+      <div id="open-modal" class="modal-janela">
+      <div>
+        <a href="#" title="Close" class="modal-close"><mat-icon id="btn-close">cancel</mat-icon></a>
+        <h1>Detalhes</h1>
+
+      <form [formGroup]="modalRegistro">
+        <textarea [(ngModel)]="itemModal" formControlName="itemDetails"
+        name="textArea" id="textArea" cols="30" rows="10"></textarea>
+          <button id="btn-save" (click)="addDetalhes()">Salvar</button>
+          <ul id="listaModal">
+            <li id="liModal" *ngFor="let itemModal of itensModal">{{itemModal}}</li>
+          </ul>
+          <button class="btn-remove" (click)="removeItem(item, c)">
+            <mat-icon id="btn-delete">delete</mat-icon></button>
+        </form>
+             </div>
+           </div>
+      </div>
   </section>
+  </section>
+
 </main>
-
-
-
 

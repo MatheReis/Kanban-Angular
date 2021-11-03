@@ -1,22 +1,6 @@
 <app-body></app-body>
 <app-cards></app-cards>
-
-
-<button class="btn-open" (click)="modal.toggle()">
-  <!-- Add new item -->
-  <mat-icon aria-hidden="false" aria-label="Example home icon">add</mat-icon>
-</button>
-<app-modal #modal>
-  <h1>Detalhes</h1>
-  <textarea class="input"></textarea>
-
-  <button
-    (click)="acaoPrimaria(); modal.toggle();"
-    class="btn-primario">
-  <mat-icon aria-hidden="false" aria-label="Example home icon">navigate_next</mat-icon>
-  </button>
-
-</app-modal>
+<app-modal></app-modal>
 
 <mat-slider></mat-slider>
 <mat-panel-title></mat-panel-title>

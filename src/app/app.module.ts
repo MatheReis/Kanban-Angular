@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatButtonToggleModule } from '@angular/material/button-toggle'
+import { MatButtonToggleModule } from '@angular/material/button-toggle'
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
 
@@ -11,9 +11,9 @@ import { BodyComponent } from './Components/body/body.component';
 import { CardsComponent } from './Components/cards/cards.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ModalComponent } from './Components/modal/modal.component';
 import { MatIconModule} from '@angular/material/icon';
-import { MatTreeModule } from '@angular/material/tree';
+import { MatTreeModule} from '@angular/material/tree';
+import { ModalComponent } from './Components/modal/modal.component';
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import { MatTreeModule } from '@angular/material/tree';
     BodyComponent,
     CardsComponent,
     ModalComponent,
+
   ],
 
   imports: [
@@ -35,7 +36,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatExpansionModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatTreeModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

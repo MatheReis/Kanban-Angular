@@ -1,7 +1,8 @@
 import { Models } from './../Models';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cards',
@@ -10,23 +11,25 @@ import { FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators } 
 })
 export class CardsComponent implements OnInit {
 
-
   fazer: Models[] = [];
   fazendo: Models[] = [];
   feito: Models[] = [];
   public registro!: FormGroup;
   sequencia: number = 0;
+  public modalRegistro!: FormGroup;
+  itemModal = "";
+  public itensModal: Array<string> = [];
 
-  //Mostrar Modal
-  mostrar: boolean = false;
 
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder){ }
 
 
   ngOnInit(): void {
     this.registro = this.fb.group({
       itemName: ['', [Validators.required, Validators.minLength(3)]]
+    });
+    this.modalRegistro = this.fb.group({
+      itemDetails: ['', [Validators.required, Validators.minLength(3)]]
     });
       this.fazer = [];
       this.fazendo = [];
@@ -37,7 +40,7 @@ export class CardsComponent implements OnInit {
 
   addItem(): void{
     if(this.registro.valid){
-      let item: Models = new Models(++this.sequencia, this.registro.value['itemName'],'fazer');
+      let item: Models = new Models(++this.sequencia, this.registro.value['itemName'], 'fazer', '');
       this.fazer.push(item);
       this.registro.reset();
       this.saveItem(item);
@@ -45,10 +48,25 @@ export class CardsComponent implements OnInit {
     }
   }
 
+ addDetalhes():void{
+   if(this.modalRegistro.valid){
+     let details = new Models(++this.sequencia, this.modalRegistro.value['itemDetails'], 'fazer', '');
+   }
+     this.itensModal.push(this.itemModal);
+     this.itemModal = "";
+   }
+
+
   setItem(itemList: Models[]):void {
     this.fazer = itemList.filter(item => item.status == 'fazer');
     this.fazendo = itemList.filter(item => item.status == 'fazendo');
     this.feito = itemList.filter(item => item.status == 'feito');
+  }
+
+  setModal(itemList: Models[]):void{
+    this.fazer = itemList.filter(details => details.detalhes == 'fazer');
+    this.fazendo = itemList.filter(details => details.detalhes == 'fazendo');
+    this.feito = itemList.filter(details => details.detalhes == 'feito');
   }
 
 
@@ -99,6 +117,7 @@ export class CardsComponent implements OnInit {
      let currentItem = JSON.parse(previousItem) as Models[];
      currentItem.push(item)
      localStorage.setItem('itemList', JSON.stringify(currentItem));
+     localStorage.setItem(this.itemModal, JSON.stringify(currentItem));
    }
    catch(error){
      console.log(error);
@@ -114,6 +133,7 @@ export class CardsComponent implements OnInit {
       }
       let currentItem = JSON.parse(previousItem) as Models[];
       currentItem.splice(currentItem.findIndex(item => item.id === item.id), 1);
+      currentItem.splice(currentItem.findIndex(item => item.detalhes === item.detalhes), 1);
       localStorage.setItem('itemList', JSON.stringify(currentItem));
     }
     catch(error){
@@ -128,13 +148,14 @@ export class CardsComponent implements OnInit {
         previousItem = "[]";
       }
       let currentItem = JSON.parse(previousItem) as Models[];
-      currentItem[currentItem.findIndex(item => (item.id == item.id && item.tarefa == item.tarefa))].status = item.status;
+      currentItem[currentItem.findIndex(item => (item.id == item.id && item.tarefa == item.tarefa && item.detalhes == item.detalhes))].status = item.status;
       localStorage.setItem('itemList', JSON.stringify(currentItem));
+      localStorage.setItem(this.itemModal, JSON.stringify(currentItem));
   }
   catch(error){
     console.log(error);
-  }
-}
+   }
+ }
 
   retrieveItem(): void {
     try{
@@ -150,8 +171,8 @@ export class CardsComponent implements OnInit {
   }
   catch(error){
     console.log(error);
-  }
-}
+   }
+ }
 
   getIndex(): number {
     let numSeq: number = 0;
@@ -184,8 +205,17 @@ export class CardsComponent implements OnInit {
         console.log(error);
       }
    }
+ }
 
-  }
+
+
+
+
+
+
+
+
+
 
 
 

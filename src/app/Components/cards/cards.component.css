@@ -84,6 +84,12 @@
   font-family: "Roboto",sans-serif;
 }
 
+#tarefa {
+  position: relative;
+  left: 122px;
+  top: 8px;
+}
+
 
 /*Cards*/
 
@@ -119,6 +125,7 @@
     box-shadow: 0 19px 38px rgba(0,0,0,0.30),
     0 15px 12px rgba(0,0,0,0.22);
     }
+
 
     .Feito{
 
@@ -164,7 +171,6 @@
   }
 
   .example-box {
-    padding: 20px 10px;
     border-bottom: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
     display: flex;
@@ -200,3 +206,173 @@
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
+
+   /* Modal */
+
+  #icon-detalhes {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    position: relative;
+    left: 88px;
+  }
+
+  #btn-save{
+    background:  #4CAF50;
+    position: relative;
+    text-transform: uppercase;
+    width: 25%;
+    left: 2px;
+    top: 3px;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+    font-size: 14px;
+    outline: 0;
+  }
+
+  #btn-close {
+    background-repeat: no-repeat;
+    display: inline-block;
+    fill: currentColor;
+    height: 76px;
+    width: 27px;
+    position: relative;
+    font-size: 30px;
+  }
+
+  #btn-delete {
+    background-repeat: no-repeat;
+    display: inline-block;
+    color: #FF0000;
+    fill: currentColor;
+    height: 76px;
+    width: 27px;
+    position: fixed;
+    font-size: 30px;
+    left: 210px;
+    top: 292px;
+  }
+
+
+   .modal-janela {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.473);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 1;
+    pointer-events: none;
+    transition: all 0.3s;
+
+  }
+  .modal-janela:target {
+    visibility: visible;
+    opacity: 10;
+    pointer-events: auto;
+  }
+  .modal-janela > div {
+    width: 316px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 2em;
+    background: #a6f2fc;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  .modal-janela header {
+    font-weight: bold;
+  }
+  .modal-janela h1 {
+    font-size: 150%;
+    margin: 0 0 15px;
+  }
+  .modal-close {
+    color: rgb(199, 32, 32);
+    line-height: 50px;
+    font-size: 30px;
+
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 70px;
+    text-decoration: none;
+  }
+  .modal-close:hover {
+    color: #a30505;
+  }
+  /* Demo Styles */
+
+  .container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 0vh;
+  }
+  .modal-window > div {
+    border-radius: 1rem;
+  }
+  .modal-window div:not(:last-of-type) {
+    margin-bottom: 15px;
+  }
+  small {
+    color: lightgray;
+  }
+  .btn {
+    background-color: white;
+    padding: 1em 1.5em;
+    border-radius: 1rem;
+    text-decoration: none;
+  }
+  .btn i {
+    padding-right: 0.3em;
+  }
+
+ #liModal{
+  margin: 0 auto;
+  padding: 0;
+  max-height: 390px;
+  overflow-y: auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 5px 0 5px;
+  border-left: none;
+  border-right: none;
+ }
+
+
+  #listaModal{
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.05);
+  background-image:
+  linear-gradient(90deg,  #FFD32E 10px,#EEE 10px, #EEE 11px, transparent 11px);
+  padding: 10px 15px 10px 25px;
+  position: relative;
+  border: 1px solid #CCC;
+  top: 29px;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+  margin-bottom: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+
+
+
+
+
+
+
+
+
